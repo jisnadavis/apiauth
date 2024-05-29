@@ -1,6 +1,7 @@
 const { isauth } = require('../../middleware/isauth')
-const { getreservation } = require('../controlles/reservation')
+const { isStaff } = require('../../middleware/isstaff')
+const { getReser } = require('../controlles/reservation')
 
 const Reservationrouter = require('express').Router()
-Reservationrouter.get('/', [isauth], getreservation)
+Reservationrouter.get('/:restaurant_id', [isauth], getReser)
 module.exports = Reservationrouter
